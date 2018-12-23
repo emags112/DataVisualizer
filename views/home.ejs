@@ -1,7 +1,14 @@
 <% include partials/header %>
-
-
-
-
-
+    <div class="header">
+        <h1>Data.gov Visualizer</h1>
+        <h2>View the parks</h2>
+    </div>
+    <div class="content">
+        <h2 class="content-subhead">Search for your favorite park</h2>
+        <form id="search" action="/" method="POST">
+            <input type="text" name="searchData">
+            <button type="submit" for="search">Search</button>
+            <button type="reset" for="search">Reset</button>
+        </form>
+    </div>
 <% include partials/footer %>
