@@ -24,10 +24,6 @@ app.get('/:dataSet', function(req, res){
     });
 })
 
-app.get('*', function(req, res){
-    res.send("hello world!");
-})
-
 app.listen(3000, function(){
     console.log("view the world in a different way");
 })
