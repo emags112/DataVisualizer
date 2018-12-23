@@ -1,7 +1,8 @@
 const   express =   require('express'),
         request =   require('request'),
         app     =   express(),
-        apiKey = '&api_key=Y2twmHii37VedsrgffYyooeLLobd4WOBPvEVW5zg';
+        apiKey = '&api_key=Y2twmHii37VedsrgffYyooeLLobd4WOBPvEVW5zg',
+        apiBaseURL  = 'https://api.nps.gov/api/v1';
 
 app.set('view engine', 'ejs');
 
@@ -13,7 +14,14 @@ app.get('/', function(req, res){
 
 app.get('/:dataSet', function(req, res){
     let dataSet = req.params.dataSet;
-    res.render('viewer', {dataSet: dataSet});
+    request(apiBaseURL + '/parks?q=' + dataSet + apiKey, function (error, response, body) {
+        if(error){
+            res.send(error);
+        } else {
+            let data = JSON.parse(body);
+            res.render('viewer', {data: data});
+        }
+    });
 })
 
 app.get('*', function(req, res){
