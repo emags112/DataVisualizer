@@ -26,7 +26,7 @@ app.post('/', function(req, res){
 
 app.get('/:dataSet', function(req, res){
     let dataSet = req.params.dataSet;
-    request(apiBaseURL + '/parks?q=' + dataSet + apiKey, function (error, response, body) {
+    request(apiBaseURL + '/parks?q=' + dataSet + '&fields=images' + apiKey, function (error, response, body) {
         if(error){
             res.send(error);
         } else {
