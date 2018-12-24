@@ -1,5 +1,14 @@
+*{
+    word-wrap: break-word;
+}
+
 body {
     color: #777;
+}
+
+.header img{
+    display: inline-block;
+    width: 1.75rem;
 }
 
 .pure-img-responsive {
@@ -252,7 +261,108 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     text-align: right;
 }
 
+.center-align{
+    text-align: center;
+}
+
 img{
     width: 100%;
-    /* max-height: 200px; */
+}
+
+a h2, a h6{
+    font-weight: 500;
+    color:#666;
+}
+
+a{
+    text-decoration: none;
+}
+
+.pure-card{
+    margin: 10px 0;
+    padding: 1em 2em;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px 1px #19181822
+}
+
+.pure-card:hover{
+    box-shadow: 2px 2px 1px 1px #19181825
+}
+
+#search{
+    margin: auto;
+    width: 50%
+}
+
+.m-5{
+    margin: 5px;
+}
+
+.pure-news-card{
+    height: 40vh;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.pure-news-image{
+    width: 100%;
+    height: 100%;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: all 2s;
+}
+
+.pure-news-heading{
+    color: #ddd;
+    background: #191818AA;
+    padding: 5px;
+    transition: all 2s;
+}
+
+.pure-news-card:hover .pure-news-heading{
+    height: 100%;
+}
+
+.pure-news-card:hover .pure-news-content{
+    display: block
+}
+
+.pure-news-content{
+    border-top: 1px solid #666;
+    display: none;
+}
+
+.pure-news-content .description{
+    font-size: .85em;
+    line-height: 1.3em;
+    overflow: hidden;
+    height: 6.4em;
+}
+
+.pure-news-content .links a{
+    font-size: .9em;
+    color: #ddd;
+    text-decoration: none;
+}
+
+.pure-news-content .links a:hover{
+    text-decoration:underline;
+}
+
+.pure-news-content .links{
+    border-top: 1px solid #666;
+    padding: 5px;
+}
+
+.pure-news-heading h4{
+    margin: 0;
+}
+
+.m-0{
+    margin: 0;
 }

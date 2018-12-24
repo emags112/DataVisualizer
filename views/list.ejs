@@ -1,0 +1,22 @@
+<% include partials/header %>
+
+<div class="header">
+        <h1>All of our Parks</h1>
+        <h2>From A to Zion</h2>
+    </div>
+
+    <div class="content">
+            <% data['data'].forEach(function(park){ %>
+                <a href="/<%= park['parkCode'] %>">
+                    <div class="pure-card pure-g">
+                    <h2 class="content-subheader pure-u-17-24">
+                        <%= park['fullName'] %>
+                    </h2>
+                    <h6 class="content-subheader pure-u-2-24 center-align"><%= park['states'] %></h6>
+                    <h6 class="content-subheader pure-u-5-24 right-align"><%= park['designation'] %></h6>
+                    </div>
+                </a>
+            <% }); %>
+    </div>
+
+<% include partials/footer %>

@@ -1,14 +1,71 @@
 <% include partials/header %>
     <div class="header">
-        <h1>Data.gov Visualizer</h1>
-        <h2>View the parks</h2>
+         <h1><img src="https://www.nps.gov/common/commonspot/templates/assetsCT/images/branding/logo.png" alt=""> Parks Viewer</h1>
+        <h2>See Our Wonderful Parks</h2>
     </div>
     <div class="content">
-        <h2 class="content-subhead">Search for your favorite park</h2>
-        <form id="search" action="/" method="POST" class="pure-form">
-            <input type="text" name="searchData" class="pure-input">
-            <button type="submit" for="search" class="pure-button">Search</button>
-            <button type="reset" for="search" class="pure-button">Reset</button>
-        </form>
+        <div class="formBox">
+            <h2 class="content-subhead center-align">Search for your favorite park</h2>
+            <form id="search" action="/" method="POST" class="pure-form">
+                <div class="pure-g">
+                <input type="text" name="searchData" class="pure-input pure-u-17-24 m-5" placeholder="Park Name">
+                <select name="state" class="pure-u-5-24 m-5">
+                    <optgroup>
+                        <option value="">State</option><option value="AL">AL</option>
+                        <option value="AK">AK</option><option value="AR">AR</option>
+                        <option value="AZ">AZ</option><option value="CA">CA</option>
+                        <option value="CO">CO</option><option value="CT">CT</option>
+                        <option value="DC">DC</option><option value="DE">DE</option>
+                        <option value="FL">FL</option><option value="GA">GA</option>
+                        <option value="HI">HI</option><option value="IA">IA</option>
+                        <option value="ID">ID</option><option value="IL">IL</option>
+                        <option value="IN">IN</option><option value="KS">KS</option>
+                        <option value="KY">KY</option><option value="LA">LA</option>
+                        <option value="MA">MA</option><option value="MD">MD</option>
+                        <option value="ME">ME</option><option value="MI">MI</option>
+                        <option value="MN">MN</option><option value="MO">MO</option>
+                        <option value="MS">MS</option><option value="MT">MT</option>
+                        <option value="NC">NC</option><option value="NE">NE</option>
+                        <option value="NH">NH</option><option value="NJ">NJ</option>
+                        <option value="NM">NM</option><option value="NV">NV</option>
+                        <option value="NY">NY</option><option value="ND">ND</option>
+                        <option value="OH">OH</option><option value="OK">OK</option>
+                        <option value="OR">OR</option><option value="PA">PA</option>
+                        <option value="RI">RI</option><option value="SC">SC</option>
+                        <option value="SD">SD</option><option value="TN">TN</option>
+                        <option value="TX">TX</option><option value="UT">UT</option>
+                        <option value="VT">VT</option><option value="VA">VA</option>
+                        <option value="WA">WA</option><option value="WI">WI</option>
+                        <option value="WV">WV</option><option value="WY">WY</option>
+                    </optgroup>
+                </select>
+                </div>
+                <div class="pure-g">
+                <button type="submit" for="search" class="pure-button pure-u-11-24 m-5">Search</button>
+                <button type="reset" for="search" class="pure-button pure-u-11-24 m-5">Reset</button>
+                </div>
+            </form>
+        </div>
+        <div class="news pure-g">
+            <h2 class="content-subhead center-align pure-u-1">Latest Stories</h2>
+            <% articles['data'].forEach(function(article){ %>
+                <div class="pure-news-card pure-u-8-24">
+                    <div class="pure-news-image" style="background-image: url('<%= article['listingImage']['url']%>');">
+                        <div class="pure-news-heading">
+                            <h4><%= article['title'] %></h4>
+                            <div class="pure-news-content">
+                                <p class="description"><%= article['listingDescription'] %></p>
+                                <div class="links">
+                                    <a href="<%= article['url'] %>">Continue Reading</a><br>
+                                    <a href="<%= article['url'] %>">About the Park</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            <% }); %>
+        </div>
     </div>
 <% include partials/footer %>

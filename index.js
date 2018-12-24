@@ -6,7 +6,9 @@ const   express     =   require('express'),
         apiBaseURL  =   'https://api.nps.gov/api/v1';
         
 
-let data = false;
+let data = false,
+    alerts,
+    articles;
 
 app.set('view engine', 'ejs');
 
@@ -15,13 +17,38 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 
 app.get('/', function(req, res){
-    res.render('home', {data: data});
+    request(apiBaseURL + '/articles?limit=5' + apiKey, function (error, response, body) {
+        if(error){
+            res.send(error);
+        } else {
+            articles = JSON.parse(body);
+        }
+    });
+    request(apiBaseURL + '/alerts?limit=5' + apiKey, function (error, response, body) {
+        if(error){
+            res.send(error);
+        } else {
+            alerts = JSON.parse(body);
+        }
+    });
+    res.render('home', {articles: articles, alerts: alerts, data: data});
 })
 
 app.post('/', function(req, res){
     let dataSet = req.body.searchData;
     let search = '/' + dataSet;
     res.redirect(search);
+})
+
+app.get("/list", function(req, res){
+    request(apiBaseURL + '/parks?limit=600' + apiKey, function (error, response, body) {
+        if(error){
+            res.send(error);
+        } else {
+            let data = JSON.parse(body);
+            res.render('list', {data: data});
+        }
+    });
 })
 
 app.get('/:dataSet', function(req, res){
