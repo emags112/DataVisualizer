@@ -19,19 +19,20 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.get('/', function(req, res){
     request(apiBaseURL + '/articles?limit=5' + apiKey, function (error, response, body) {
         if(error){
-            res.send(error);
+            console.log(error);
+            res.redirect('/');
         } else {
             articles = JSON.parse(body);
         }
     });
-    request(apiBaseURL + '/alerts?limit=5' + apiKey, function (error, response, body) {
-        if(error){
-            res.send(error);
-        } else {
-            alerts = JSON.parse(body);
-        }
-    });
-    res.render('home', {articles: articles, alerts: alerts, data: data});
+    // request(apiBaseURL + '/alerts?limit=5' + apiKey, function (error, response, body) {
+    //     if(error){
+    //         res.send(error);
+    //     } else {
+    //         alerts = JSON.parse(body);
+    //     }
+    // });
+    res.render('home', {articles: articles, data: 'data'});
 })
 
 app.post('/', function(req, res){
@@ -69,8 +70,10 @@ app.get('/park/:parkCode', function(req, res){
         if(error){
             res.send(error);
         } else {
-            let data = JSON.parse(body);
-            res.render('park', {data: data});
+            let park = JSON.parse(body);
+            var rand = Math.floor(Math.random()*(park['data'][0]['images'].length));
+            randImage = park['data'][0]['images'][rand]['url']
+            res.render('park', {data: park, randImage: randImage});
         }
     });
 })

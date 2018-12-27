@@ -1,8 +1,10 @@
 *{
     word-wrap: break-word;
+    box-sizing: border-box;
 }
 
 body {
+    background-color: #f8fff8;
     color: #777;
 }
 
@@ -49,9 +51,9 @@ This is the parent `<div>` that contains the menu and the content area.
 The content `<div>` is where all your content goes.
 */
 .content {
-    margin: 0 auto;
     padding: 0 1em;
-    max-width: 800px;
+    /* max-width: 800px; */
+    margin: 0;
     margin-bottom: 50px;
     line-height: 1.6em;
 }
@@ -279,7 +281,16 @@ a{
 }
 
 .pure-card{
-    margin: 10px 40px 10px 0;
+    margin: 10px 20px 10px 20px;
+    padding: 1em 2em;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px 1px #19181822;
+}
+
+.pure-card-park{
+    /* color: 191818; */
+    margin: 10px auto;
     padding: 1em 2em;
     border: 1px solid #ddd;
     border-radius: 3px;
@@ -370,14 +381,65 @@ a{
 }
 
 .alphabet-list{
-    text-decoration: none;
-    position: fixed;
-    right: 20px;
+    position: sticky;
     top: 0;
-    bottom: 0;
-    padding: 2em 1em;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    box-shadow: 1px 1px 1px 1px #19181822;
-    list-style: none;
+    padding: .5em;
+    text-align: center;
+    background-color: #eee;
+    border-left: 1px solid #888;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.alphabet-list a{
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: block;
+    text-decoration: none;
+    color: #888;
+    width: 100%;
+    transition: all .1s;
+}
+
+.largeLink{
+    font-size: 1.6rem;
+}
+
+.medLink{
+    font-size: 1.2rem;
+}
+
+.smallLink{
+    font-size: .7rem;
+}
+
+.parkHeader{
+    height: 50vh;
+    color: #ddd;
+    background-size: cover;
+    background-blend-mode: lighten;
+    display: flex;
+    align-content: center;
+}
+
+.parkHeader .parkHeaderBlock{
+    background: #191818AA;
+    padding: 5px;
+    width: 50%;
+    margin: auto;
+}
+
+.divider{
+    width: 80%;
+    border: .5px solid #aaa;
+}
+
+.alphaDivider{
+    padding: 5px 0 0 20px;
+    border-bottom: 1px solid #888;
+    position: sticky;
+    top: 0;
+    background-color: #eee;
 }

@@ -1,9 +1,24 @@
+const alphaLinks = document.querySelectorAll('.alphabet-list a');
+alphaLinks.forEach(function(link){
+    link.addEventListener('mouseenter', function(e){
+
+        this.previousElementSibling.classList.add('medLink');
+        this.classList.add('largeLink');
+        this.nextElementSibling.classList.add('medLink');
+    });
+    link.addEventListener('mouseleave', function(e){
+        this.previousElementSibling.classList.remove('medLink');
+        this.classList.remove('largeLink');
+        this.nextElementSibling.classList.remove('medLink');
+    });
+});
+
 // scripts from pure for side bar menu
 (function (window, document) {
 
     var layout   = document.getElementById('layout'),
         menu     = document.getElementById('menu'),
-        menuLink = document.getElementsByClassName('.menu-link'),
+        menuLink = document.getElementsByClassName('.pure-menu-link'),
         content  = document.getElementById('main');
 
     function toggleClass(element, className) {
@@ -34,14 +49,15 @@
         toggleClass(menuLink, active);
     }
 
-    menuLink.onclick = function (e) {
+    menuLink.on('click', function(e){
         toggleAll(e);
-    };
+    });
 
-    content.onclick = function(e) {
+    content.on('click', function(e){
         if (menu.className.indexOf('active') !== -1) {
             toggleAll(e);
         }
-    };
+    });
 
 }(this, this.document));
+

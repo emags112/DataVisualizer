@@ -1,11 +1,25 @@
 <% include partials/header %>
-    <div class="header" style="background-image: url('data['data'][0]['images'][1][url]')">
-        <h1><% data %></h1>
+    <div class="parkHeader header" style="background-image: url('<%= randImage %>')">
+        <div class="parkHeaderBlock">
+            <h1><%= data['data'][0]['name'] %></h1>
+            <hr class="divider">
+            <h2><%= data['data'][0]['designation'] %> - <%= data['data'][0]['states'] %></h2>
+        </div>
     </div>
-
-
-
-    <div class="content">
-
-
+    <div class="content pure-g">
+        <div class="description pure-u-1 pure-card-park">
+            <p><%= data['data'][0]['description'] %></p>
+        </div>
+        <div class="weather pure-u-11-24 pure-card-park">
+            <h2 class="content-subheader center-align">Weather</h2>
+            <p><%= data['data'][0]['weatherInfo'] %></p>
+        </div>
+        <div class="directions pure-u-11-24 pure-card-park">
+                <h2 class="content-subheader center-align">Directions</h2>
+                <p><%= data['data'][0]['directionsInfo'] %></p>
+        </div>
+        <div class="contact pure-card-park pure-u-1">
+                <h2 class="content-subheader center-align">Contact</h2>
+                <p><%= data['data'][0]['description'] %></p>
+        </div>
 <% include partials/footer %>

@@ -4,29 +4,43 @@
         <h1>All of our Parks</h1>
         <h2>From A to Zion</h2>
     </div>
-
-    <div class="content">
-            <% data['data'].forEach(function(park){ %>
-                <a href="/<%= park['parkCode'] %>">
-                    <div class="pure-card pure-g">
-                    <h2 class="content-subheader pure-u-17-24">
-                        <%= park['fullName'] %>
-                    </h2>
-                    <h6 class="content-subheader pure-u-2-24 center-align"><%= park['states'] %></h6>
-                    <h6 class="content-subheader pure-u-5-24 right-align"><%= park['designation'] %></h6>
-                    </div>
-                </a>
-            <% }); %>
-    </div>
-    <div class="alphabet-list">
-        <ul>
-            <li>A</li><li>B</li><li>C</li><li>D</li><li>E</li>
-            <li>F</li><li>G</li><li>H</li><li>I</li><li>J</li>
-            <li>K</li><li>L</li><li>M</li><li>N</li><li>O</li>
-            <li>P</li><li>Q</li><li>R</li><li>S</li><li>T</li>
-            <li>U</li><li>V</li><li>W</li><li>X</li><li>Y</li>
-            <li>Z</li>   
-        </ul>
-    </div>
-
+    <div class="pure-g">
+        <div class="content pure-u-22-24">
+                <% let alphaList = [] %>
+                <% data['data'].forEach(function(park){ %>
+                    <% let alpha = park['fullName'][0] %>
+                    <% if(alphaList[0] !== alpha){%> 
+                        <div class="alphaDivider">
+                            <h2 class="content-subheader" ><%= alpha %></h2>
+                        </div>
+                        <a href="/<%= park['parkCode'] %>" id="<%= alpha %>">
+                        <% alphaList.unshift(alpha) %>
+                    <%}else{%>
+                        <a href="/<%= park['parkCode'] %>" >
+                    <%}%>
+                        <div class="pure-card pure-g">
+                        <h2 class="content-subheader pure-u-17-24">
+                            <%= park['name'] %>
+                        </h2>
+                        <h6 class="content-subheader pure-u-2-24 center-align"><%= park['states'] %></h6>
+                        <h6 class="content-subheader pure-u-5-24 right-align"><%= park['designation'] %></h6>
+                        </div>
+                    </a>
+                <% }); %>
+        </div>
+        <div class="alphabet-list pure-u-2-24">
+            <a href="#A">A</a>  <a href="#B">B</a>
+            <a href="#C">C</a>  <a href="#D">D</a>
+            <a href="#E">E</a>  <a href="#F">F</a>
+            <a href="#G">G</a>  <a href="#H">H</a>
+            <a href="#I">I</a>  <a href="#J">J</a>
+            <a href="#K">K</a>  <a href="#L">L</a>
+            <a href="#M">M</a>  <a href="#N">N</a>
+            <a href="#O">O</a>  <a href="#P">P</a>
+            <a href="#Q">Q</a>  <a href="#R">R</a>
+            <a href="#S">S</a>  <a href="#T">T</a>
+            <a href="#U">U</a>  <a href="#V">V</a>
+            <a href="#W">W</a>  <a href="#X">X</a>
+            <a href="#Y">Y</a>  <a href="#Z">Z</a>
+        </div>
 <% include partials/footer %>
