@@ -63,6 +63,18 @@ app.get('/:dataSet', function(req, res){
     });
 })
 
+app.get('/park/:parkCode', function(req, res){
+    let parkCode = req.params.parkCode;
+    request(apiBaseURL + '/parks?parkCode=' + parkCode + '&fields=images' + apiKey, function (error, response, body) {
+        if(error){
+            res.send(error);
+        } else {
+            let data = JSON.parse(body);
+            res.render('park', {data: data});
+        }
+    });
+})
+
 app.listen(3000, function(){
     console.log("view the world in a different way");
 })

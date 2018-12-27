@@ -50,7 +50,7 @@ The content `<div>` is where all your content goes.
 */
 .content {
     margin: 0 auto;
-    padding: 0 2em;
+    padding: 0 1em;
     max-width: 800px;
     margin-bottom: 50px;
     line-height: 1.6em;
@@ -279,15 +279,15 @@ a{
 }
 
 .pure-card{
-    margin: 10px 0;
+    margin: 10px 40px 10px 0;
     padding: 1em 2em;
     border: 1px solid #ddd;
     border-radius: 3px;
-    box-shadow: 1px 1px 1px 1px #19181822
+    box-shadow: 1px 1px 1px 1px #19181822;
 }
 
 .pure-card:hover{
-    box-shadow: 2px 2px 1px 1px #19181825
+    box-shadow: 2px 2px 1px 1px #19181825;
 }
 
 #search{
@@ -300,9 +300,11 @@ a{
 }
 
 .pure-news-card{
-    height: 40vh;
-    padding: 5px;
+    height: 50vh;
+    max-height: 300px;
+    padding: 10px;
     box-sizing: border-box;
+    transition: all 2s;
 }
 
 .pure-news-image{
@@ -321,11 +323,11 @@ a{
     color: #ddd;
     background: #191818AA;
     padding: 5px;
-    transition: all 2s;
+    
 }
 
 .pure-news-card:hover .pure-news-heading{
-    height: 100%;
+    height: 50vh;
 }
 
 .pure-news-card:hover .pure-news-content{
@@ -365,4 +367,17 @@ a{
 
 .m-0{
     margin: 0;
+}
+
+.alphabet-list{
+    text-decoration: none;
+    position: fixed;
+    right: 20px;
+    top: 0;
+    bottom: 0;
+    padding: 2em 1em;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px 1px #19181822;
+    list-style: none;
 }
