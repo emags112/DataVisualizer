@@ -1,11 +1,19 @@
-let alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-let array = [];
+const   request     =   require('request'),
+        apiKey      =   '&api_key=Y2twmHii37VedsrgffYyooeLLobd4WOBPvEVW5zg',
+        apiBaseURL  =   'https://api.nps.gov/api/v1';
 
-alpha.forEach(function(letter){
-    let link = '#' + letter;
-    array.push('<a href="' + link + '">' + letter + '</a>')
-});
-
-array.forEach(function(link){
-    console.log(link);
+request(apiBaseURL + '/visitorcenters?parkCode=acad&fields=name,operatingHours,addresses,contacts' + apiKey, function (error, response, body) {
+    if(error){
+        res.send(error);
+    } else {
+        let visitorCenter = JSON.parse(body);
+        visitorCenter['data'].forEach(function(center){
+            center['operatingHours'].forEach(function(hours){
+                hours['exceptions'].forEach(function(exception){
+                    console.log(exception['name']);
+                })
+                
+            })
+        })
+    }
 })

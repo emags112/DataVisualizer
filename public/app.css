@@ -1,6 +1,7 @@
 *{
     word-wrap: break-word;
     box-sizing: border-box;
+    transition: all .1s;
 }
 
 body {
@@ -44,7 +45,7 @@ This is the parent `<div>` that contains the menu and the content area.
         width: 200px;
     }
 
-    #layout.active .menu-link {
+    #layout.active{
         left: 200px;
     }
 /*
@@ -54,12 +55,14 @@ The content `<div>` is where all your content goes.
     padding: 0 1em;
     /* max-width: 800px; */
     margin: 0;
+
     margin-bottom: 50px;
     line-height: 1.6em;
 }
 
 .header {
      margin: 0;
+     margin-top: 2.2em;
      color: #333;
      text-align: center;
      padding: 2.5em 2em 0;
@@ -91,16 +94,21 @@ appears on the left side of the page.
 */
 
 #menu {
-    margin-left: -200px; /* "#menu" width */
-    width: 200px;
+    width: 100%;
+    margin: auto 0;
     position: fixed;
     top: 0;
     left: 0;
-    bottom: 0;
+    right: 0;
     z-index: 1000; /* so the menu or its navicon stays above all content */
     background: #191818;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+}
+
+.pure-menu{
+    display: flex;
+    justify-content: space-between;
 }
     /*
     All anchors inside the menu should be styled like this.
@@ -140,7 +148,7 @@ appears on the left side of the page.
     */
     #menu .pure-menu-selected,
     #menu .pure-menu-heading {
-        background: #1f8dd6;
+        background: #660000;
     }
         /*
         This styles a link within a selected menu item `<li>`.
@@ -161,6 +169,10 @@ appears on the left side of the page.
 
 /* -- Dynamic Button For Responsive Menu -------------------------------------*/
 
+.pure-menu-item{
+    width: 8em;
+    text-align: center;
+}
 /*
 The button to open/close the Menu is custom-made and not part of Pure. Here's
 how it works:
@@ -170,19 +182,6 @@ how it works:
 `.menu-link` represents the responsive menu toggle that shows/hides on
 small screens.
 */
-.menu-link {
-    position: fixed;
-    display: block; /* show this only on small screens */
-    top: 0;
-    left: 0; /* "#menu width" */
-    background: #000;
-    background: rgba(0,0,0,0.7);
-    font-size: 10px; /* change this value to increase/decrease button size */
-    z-index: 10;
-    width: 2em;
-    height: auto;
-    padding: 2.1em 1.6em;
-}
 
     .menu-link:hover,
     .menu-link:focus {
@@ -228,11 +227,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     }
 
     #layout {
-        padding-left: 200px; /* left col width "#menu" */
         left: 0;
-    }
-    #menu {
-        left: 200px;
     }
 
     .menu-link {
@@ -289,12 +284,14 @@ a{
 }
 
 .pure-card-park{
-    /* color: 191818; */
-    margin: 10px auto;
+    color: #191818;
+    margin: 10px;
     padding: 1em 2em;
     border: 1px solid #ddd;
     border-radius: 3px;
     box-shadow: 1px 1px 1px 1px #19181822;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .pure-card:hover{
@@ -382,12 +379,12 @@ a{
 
 .alphabet-list{
     position: sticky;
-    top: 0;
+    top: 6vh;
     padding: .5em;
     text-align: center;
     background-color: #eee;
     border-left: 1px solid #888;
-    height: 100vh;
+    height: 94vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -440,6 +437,62 @@ a{
     padding: 5px 0 0 20px;
     border-bottom: 1px solid #888;
     position: sticky;
-    top: 0;
+    top: 2em;
     background-color: #eee;
+}
+
+.visitorCenterDivider{
+    padding: 5px 20px;
+    border-bottom: 1px solid #888;
+    position: sticky;
+    top: 2em;
+    background-color: #eee;
+    display:flex;
+    justify-content: space-between;
+}
+
+#visitorInfo{
+    overflow: hidden;
+    transition: all .2s;
+}
+
+.hidden{
+    height: 0px !important;
+}
+
+.rotate{
+    transform: rotateX(180deg);
+}
+
+#arrow{
+    transition: all .1s;
+}
+
+.alerts{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.pure-alert-card{
+    color: #333;
+    padding: 5px 20px;
+    margin: 10px auto;
+    border: 1px solid #888;
+}
+
+.pure-alert-card .content-subhead{
+    margin-top: 20px;
+    color:#333;
+}
+
+.pure-alert-card hr{
+    border: .5px solid #333;
+}
+
+.Caution{
+    background: rgb(247, 255, 24);
+}
+
+.Park.Closure, .Danger{
+    background: #dd0000cc;
 }

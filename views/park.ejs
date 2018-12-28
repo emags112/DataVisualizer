@@ -1,25 +1,99 @@
 <% include partials/header %>
     <div class="parkHeader header" style="background-image: url('<%= randImage %>')">
         <div class="parkHeaderBlock">
-            <h1><%= data['data'][0]['name'] %></h1>
+            <h1><%= parks['data'][0]['name'] %></h1>
             <hr class="divider">
-            <h2><%= data['data'][0]['designation'] %> - <%= data['data'][0]['states'] %></h2>
+            <h2><%= parks['data'][0]['designation'] %> - <%= parks['data'][0]['states'] %></h2>
         </div>
     </div>
     <div class="content pure-g">
-        <div class="description pure-u-1 pure-card-park">
-            <p><%= data['data'][0]['description'] %></p>
-        </div>
-        <div class="weather pure-u-11-24 pure-card-park">
-            <h2 class="content-subheader center-align">Weather</h2>
-            <p><%= data['data'][0]['weatherInfo'] %></p>
-        </div>
-        <div class="directions pure-u-11-24 pure-card-park">
-                <h2 class="content-subheader center-align">Directions</h2>
-                <p><%= data['data'][0]['directionsInfo'] %></p>
-        </div>
-        <div class="contact pure-card-park pure-u-1">
-                <h2 class="content-subheader center-align">Contact</h2>
-                <p><%= data['data'][0]['description'] %></p>
+        <div class="park pure-u-1 pure-g">
+            <%  if(alerts['data'][0]){ %>
+                <div class="alerts pure-u-23-24">
+                    <% alerts['data'].forEach(function(alert){ %>
+                        <% let width = Math.floor(24/alerts['data'].length)-1; %>
+                        <div class="pure-alert-card pure-u-<%=width%>-24 <%= alert['category'] %>">
+                            <h2 class="content-subhead center-align"><%= alert['title'] %></h2>
+                            
+                            <p><%= alert['description'] %></p>
+                        </div>
+                    <% }) %>
+                </div>
+            <% } %>
+            <div class="weather pure-u-11-24 pure-card-park">
+                <h2 class="content-subheader">Weather</h2>
+                <p><%= parks['data'][0]['weatherInfo'] %></p>
+            </div>
+            <div class="directions pure-u-11-24 pure-card-park">
+                    <h2 class="content-subheader">Directions</h2>
+                    <p><%= parks['data'][0]['directionsInfo'] %></p>
+            </div>
+            <div class="contact pure-card-park pure-u-23-24">
+                    <h2 class="content-subheader">Contact</h2>
+                    <p><%= parks['data'][0]['description'] %></p>
+            </div>
+        
+            <div class="visitorcenters pure-card-park pure-u-23-24">
+                    <h2 class="content-subheader">Visitor Centers</h2>
+                <% visitorCenter['data'].forEach(function(center){ %>
+                    <div class="visitorCenter pure-g">
+                        <h3 class="pure-u-1 visitorCenterDivider"><%= center['name'] %><i id="arrow" class="fas fa-angle-up"></i></h3>
+                        <div id="visitorInfo" class=" hidden">
+                            <div class="pure-u-6-24">
+                                <h4>Phone:</h4>
+                                <% center['contacts']['phoneNumbers'].forEach(function(number){ %>
+                                    </p><%= number['type'] %>: <%= number['phoneNumber'] %></p>
+                                <%})%>
+                                    
+                                <h4>Email:</h4>
+                                <% center['contacts']['emailAddresses'].forEach(function(email){ %>
+                                    </p><%= email['emailAddress'] %></p>
+                                <%})%>
+                                
+                                <h4>Address:</h4>
+                                <% center['addresses'].forEach(function(address){ %>
+                                    <h5><%= address['type'] %>:</h5>
+                                    <p><%= address['line1'] %> <br>
+                                    <% if(address['line2']){ %>
+                                        <%= address['line2'] %> <br>
+                                    <% } %>
+                                    <% if(address['line3']){ %>
+                                        <%= address['line3'] %> <br>
+                                    <% } %>
+                                    <%= address['city'] %>, <%= address['stateCode'] %> <%= address['postalCode'] %></p>
+                                <%})%>   
+                            </div>
+                            <div class="pure-u-18-24 pure-g">
+                                <% if(center['operatingHours'][0]){ %>
+                                    <h4 class="pure-u-1">Hours:</h4>
+                                    <ul class="pure-u-11-24"> Standard Hours:
+                                        <li><strong>Monday:</strong> <%= center['operatingHours'][0]['standardHours']['monday'] %></li>
+                                        <li><strong>Tuesday:</strong> <%= center['operatingHours'][0]['standardHours']['tuesday'] %></li>
+                                        <li><strong>Wednesday:</strong> <%= center['operatingHours'][0]['standardHours']['wednesday'] %></li>
+                                        <li><strong>Thursday:</strong> <%= center['operatingHours'][0]['standardHours']['thursday'] %></li>
+                                        <li><strong>Friday:</strong> <%= center['operatingHours'][0]['standardHours']['friday'] %></li>
+                                        <li><strong>Saturday:</strong> <%= center['operatingHours'][0]['standardHours']['saturday'] %></li>
+                                        <li><strong>Sunday:</strong> <%= center['operatingHours'][0]['standardHours']['sunday'] %></li>
+                                    </ul>
+                                    <% center['operatingHours'].forEach(function(hours){ %>
+                                        <% hours['exceptions'].forEach(function(exception){ %>
+                                            <ul class="pure-u-11-24"> <%= exception['name'] %>: <br>
+                                                (from: <%= exception['startDate'] %> to: <%= exception['endDate'] %>)
+                                                <li><strong>Monday:</strong> <%= exception['exceptionHours']['monday'] %></li>
+                                                <li><strong>Tuesday:</strong> <%= exception['exceptionHours']['tuesday'] %></li>
+                                                <li><strong>Wednesday:</strong> <%= exception['exceptionHours']['wednesday'] %></li>
+                                                <li><strong>Thursday:</strong> <%= exception['exceptionHours']['thursday'] %></li>
+                                                <li><strong>Friday:</strong> <%= exception['exceptionHours']['friday'] %></li>
+                                                <li><strong>Saturday:</strong> <%= exception['exceptionHours']['saturday'] %></li>
+                                                <li><strong>Sunday:</strong> <%= exception['exceptionHours']['sunday'] %></li>
+                                            </ul>
+                                        <%})%>
+                                    <%})%>
+                                <%}%>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
         </div>
 <% include partials/footer %>

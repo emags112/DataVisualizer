@@ -8,7 +8,10 @@ const   express     =   require('express'),
 
 let data = false,
     alerts,
-    articles;
+    articles,
+    park,
+    visitorCenter,
+    randImage;
 
 app.set('view engine', 'ejs');
 
@@ -32,7 +35,7 @@ app.get('/', function(req, res){
     //         alerts = JSON.parse(body);
     //     }
     // });
-    res.render('home', {articles: articles, data: 'data'});
+    res.render('home', {articles: articles});
 })
 
 app.post('/', function(req, res){
@@ -46,8 +49,8 @@ app.get("/list", function(req, res){
         if(error){
             res.send(error);
         } else {
-            let data = JSON.parse(body);
-            res.render('list', {data: data});
+            let parks = JSON.parse(body);
+            res.render('list', {parks: parks});
         }
     });
 })
@@ -70,12 +73,26 @@ app.get('/park/:parkCode', function(req, res){
         if(error){
             res.send(error);
         } else {
-            let park = JSON.parse(body);
-            var rand = Math.floor(Math.random()*(park['data'][0]['images'].length));
-            randImage = park['data'][0]['images'][rand]['url']
-            res.render('park', {data: park, randImage: randImage});
+            let parks = JSON.parse(body),
+                rand = Math.floor(Math.random()*(parks['data'][0]['images'].length)),
+                randImage = parks['data'][0]['images'][rand]['url'];
+            request(apiBaseURL + '/visitorcenters?parkCode=' + parkCode + '&fields=name,operatingHours,addresses,contacts' + apiKey, function (error, response, body) {
+                if(error){
+                    res.send(error);
+                } else {
+                    let visitorCenter = JSON.parse(body);
+                    request(apiBaseURL + '/alerts?parkCode=' + parkCode + '&fields=' + apiKey, function (error, response, body) {
+                        if(error){
+                            res.send(error);
+                        } else {
+                            let alerts = JSON.parse(body);
+                            res.render('park', {parks: parks, randImage: randImage, visitorCenter: visitorCenter, alerts: alerts});
+                        }
+                    })
+                }
+            })
         }
-    });
+    })
 })
 
 app.listen(3000, function(){

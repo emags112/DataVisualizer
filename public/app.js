@@ -13,6 +13,16 @@ alphaLinks.forEach(function(link){
     });
 });
 
+const   visitorInfo =  document.querySelectorAll('.visitorCenterDivider'),
+        arrow = document.querySelectorAll('#arrow');
+    
+visitorInfo.forEach(function(info){
+    info.addEventListener('click', function(e){
+        this.nextElementSibling.classList.toggle('hidden');
+        console.log(this.children)
+        this.children[0].classList.toggle('rotate');
+    })
+});
 // scripts from pure for side bar menu
 (function (window, document) {
 
