@@ -2,13 +2,12 @@
     change search cards to list cards
 
 *park landing page
-    done?
+    smooth out parallax
+    maps for park and each visitor center
+    pull current weather from api
 
 *park map
     need to start
 
 *park list
-    alphabet tracking
-
-*Pull data from all Parks?
-    done
+    create div for each letter - figure out logic
