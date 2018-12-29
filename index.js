@@ -73,8 +73,8 @@ app.get('/park/:parkCode', function(req, res){
         if(error){
             res.send(error);
         } else {
-            let parks = JSON.parse(body),
-                rand = Math.floor(Math.random()*(parks['data'][0]['images'].length)),
+            let parks = JSON.parse(body);
+            let rand = Math.floor(Math.random()*(parks['data'][0]['images'].length)),
                 randImage = parks['data'][0]['images'][rand]['url'];
             request(apiBaseURL + '/visitorcenters?parkCode=' + parkCode + '&fields=name,operatingHours,addresses,contacts' + apiKey, function (error, response, body) {
                 if(error){

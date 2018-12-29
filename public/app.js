@@ -1,3 +1,5 @@
+
+
 const alphaLinks = document.querySelectorAll('.alphabet-list a');
 alphaLinks.forEach(function(link){
     link.addEventListener('mouseenter', function(e){
@@ -19,10 +21,35 @@ const   visitorInfo =  document.querySelectorAll('.visitorCenterDivider'),
 visitorInfo.forEach(function(info){
     info.addEventListener('click', function(e){
         this.nextElementSibling.classList.toggle('hidden');
-        console.log(this.children)
         this.children[0].classList.toggle('rotate');
     })
 });
+
+const   alerts = document.querySelectorAll('.alert-head');
+
+alerts.forEach(function(alert){
+    alert.addEventListener('click', function(e){
+        this.nextElementSibling.classList.toggle('hidden');
+        this.children[2].classList.toggle('rotate');
+    })
+});
+
+const infocons = document.querySelectorAll('.infocon');
+infocons.forEach(function(icon){
+    if(icon.id === 'Caution'){
+        icon.classList.add('fa-exclamation-triangle')
+    }
+    else if(icon.id === 'Information'){
+        icon.classList.add('fa-info-circle')
+    }
+    else if(icon.id === 'Park Closure'){
+        icon.classList.add('fa-window-close')
+    }
+    else if(icon.id === 'Danger'){
+        icon.classList.add('fa-skull-crossbones')
+    }
+})
+
 // scripts from pure for side bar menu
 (function (window, document) {
 
@@ -71,3 +98,4 @@ visitorInfo.forEach(function(info){
 
 }(this, this.document));
 
+// import { runInThisContext } from "vm";

@@ -377,6 +377,10 @@ a{
     margin: 0;
 }
 
+.park{
+    margin: auto;
+}
+
 .alphabet-list{
     position: sticky;
     top: 6vh;
@@ -469,15 +473,18 @@ a{
 }
 
 .alerts{
+    margin: .5rem;
     display:flex;
+    flex-direction: column;
     justify-content: space-evenly;
 }
 
 .pure-alert-card{
     color: #333;
-    padding: 5px 20px;
-    margin: 10px auto;
+    padding: 0 20px;
+    margin: 5px auto;
     border: 1px solid #888;
+    border-radius: 3px;
 }
 
 .pure-alert-card .content-subhead{
@@ -485,14 +492,41 @@ a{
     color:#333;
 }
 
-.pure-alert-card hr{
-    border: .5px solid #333;
+.Caution{
+    order: 1;
+    background: rgba(252, 185, 0, .3);
+    border-color: rgb(224, 165, 0, .7);
+    color: rgb(224, 165, 0);
 }
 
-.Caution{
-    background: rgb(247, 255, 24);
+.Information{
+    order: 2;
+    background: rgb(217, 237, 247);
+    border-color: rgb(49, 112, 143, .5);
+    color: rgb(49, 112, 143);
 }
 
 .Park.Closure, .Danger{
-    background: #dd0000cc;
+    order: 0;
+    background: rgba(255, 0, 0, 0.3);
+    border-color: rgb(218, 0, 0, .5);
+    color: rgb(218, 0, 0)
+}
+
+.alert-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: .5em;
+}
+
+.alert-head .alert-title{
+    margin: 0;
+    padding: 0;
+}
+
+.alerts{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
