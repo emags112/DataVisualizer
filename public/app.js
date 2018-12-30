@@ -3,15 +3,24 @@
 const alphaLinks = document.querySelectorAll('.alphabet-list a');
 alphaLinks.forEach(function(link){
     link.addEventListener('mouseenter', function(e){
-
-        this.previousElementSibling.classList.add('medLink');
+        if(this.previousElementSibling){
+            this.previousElementSibling.classList.add('medLink');
+        }
         this.classList.add('largeLink');
-        this.nextElementSibling.classList.add('medLink');
+        if(this.nextElementSibling){
+            this.nextElementSibling.classList.add('medLink');
+        }        
+        
     });
     link.addEventListener('mouseleave', function(e){
-        this.previousElementSibling.classList.remove('medLink');
+        if(this.previousElementSibling){
+            this.previousElementSibling.classList.remove('medLink');
+        }
         this.classList.remove('largeLink');
-        this.nextElementSibling.classList.remove('medLink');
+        if(this.nextElementSibling){
+            this.nextElementSibling.classList.remove('medLink');
+        }        
+        
     });
 });
 

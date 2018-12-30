@@ -40,6 +40,14 @@
                 </div>
                 <div class="weather pure-card-park">
                     <h2 class="content-subheader">Weather</h2>
+                    <% weather['list'].forEach(function(day){ %>
+                        <div class="weather-card pure-g">
+                            <div class="date pure-u-6-24">Hello</div>
+                            <div class="forecast pure-u-18-24">
+                                world
+                            </div>
+                        </div>
+                    <% }) %>
                     <p><%= parks['data'][0]['weatherInfo'] %></p>
                 </div>
             </div>

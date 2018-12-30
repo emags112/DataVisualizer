@@ -4,6 +4,8 @@ const   express     =   require('express'),
         app         =   express(),
         apiKey      =   '&api_key=Y2twmHii37VedsrgffYyooeLLobd4WOBPvEVW5zg',
         apiBaseURL  =   'https://api.nps.gov/api/v1';
+        owmAPIKey   =   '3d85baf9ef44e792b29549e4b607e8c7'
+        owmAPIBase  =   'https://api.openweathermap.org/data/2.5/forecast/daily?'
         
 
 let data = false,
@@ -69,24 +71,37 @@ app.get('/:dataSet', function(req, res){
 
 app.get('/park/:parkCode', function(req, res){
     let parkCode = req.params.parkCode;
+    // search for park
     request(apiBaseURL + '/parks?parkCode=' + parkCode + '&fields=images' + apiKey, function (error, response, body) {
         if(error){
             res.send(error);
         } else {
             let parks = JSON.parse(body);
             let rand = Math.floor(Math.random()*(parks['data'][0]['images'].length)),
-                randImage = parks['data'][0]['images'][rand]['url'];
+                randImage = parks['data'][0]['images'][rand]['url'],
+                lat = parks['data'][0]['latLong'].slice(4, 15),
+                long = parks['data'][0]['latLong'].slice(23, 35);
+            // search for visitor centers
             request(apiBaseURL + '/visitorcenters?parkCode=' + parkCode + '&fields=name,operatingHours,addresses,contacts' + apiKey, function (error, response, body) {
                 if(error){
                     res.send(error);
                 } else {
                     let visitorCenter = JSON.parse(body);
-                    request(apiBaseURL + '/alerts?parkCode=' + parkCode + '&fields=' + apiKey, function (error, response, body) {
+                    // get alerts
+                    request(apiBaseURL + '/alerts?parkCode=' + parkCode + apiKey, function (error, response, body) {
                         if(error){
                             res.send(error);
                         } else {
                             let alerts = JSON.parse(body);
-                            res.render('park', {parks: parks, randImage: randImage, visitorCenter: visitorCenter, alerts: alerts});
+                            // get weather info
+                            request(owmAPIBase + 'lat=' + lat + '&lon=' + long + '&cnt=5&appid=' + owmAPIKey, function (error, response, body) {
+                                if(error){
+                                    res.send(error);
+                                } else {
+                                    let weather = JSON.parse(body);
+                                    res.render('park', {parks: parks, randImage: randImage, visitorCenter: visitorCenter, alerts: alerts, weather: weather});
+                                }
+                            })
                         }
                     })
                 }

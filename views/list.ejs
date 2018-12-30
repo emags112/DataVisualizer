@@ -13,10 +13,10 @@
                         <div class="alphaDivider">
                             <h2 class="content-subheader" ><%= alpha %></h2>
                         </div>
-                        <a href="/<%= park['parkCode'] %>" id="<%= alpha %>">
+                        <a href="/park/<%= park['parkCode'] %>" id="<%= alpha %>">
                         <% alphaList.unshift(alpha) %>
                     <%}else{%>
-                        <a href="/<%= park['parkCode'] %>" >
+                        <a href="/park/<%= park['parkCode'] %>" >
                     <%}%>
                         <div class="pure-card pure-g">
                         <h2 class="content-subheader pure-u-17-24">

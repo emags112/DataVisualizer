@@ -5,32 +5,32 @@
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 body {
-    background-color: #f8fff8;
-    color: #777;
+  background-color: #f8fff8;
+  color: #777;
 }
 
 img {
-    width: 100%;
+  width: 100%;
 }
 
 .center-align {
-text-align: center;
+  text-align: center;
 }
 
 .right-align {
-    text-align: right;
+  text-align: right;
 }
 
 .m-0 {
-    margin: 0;
+  margin: 0;
 }
 
 .m-5 {
-    margin: 5px;
+  margin: 5px;
 }
 
 /* header styling */
@@ -272,114 +272,6 @@ Hides the menu at `48em`, but modify this based on your app's needs.
 }
 
 /* alphabet list styling */
-
-/* alert styling */
-
-/* general card styling */
-.pure-card {
-    margin: 10px 20px 10px 20px;
-    padding: 1em 2em;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    box-shadow: 2px 0px 50px 5px rgba(25, 24, 24, 0.133);
-}
-
-.pure-card:hover {
-    box-shadow: 2px 2px 1px 1px #19181825;
-  }
-
-/* park cards */
-.pure-card-park {
-    color: #191818;
-    margin: 10px auto;
-    padding: 1em 2em;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    box-shadow: 2px 0px 50px 5px #19181822;
-    box-sizing: border-box;
-    max-width: 100%;
-}
-
-/* list cards */
-
-/* news cards */
-.pure-news-card {
-    height: 50vh;
-    max-height: 300px;
-    padding: 10px;
-    box-sizing: border-box;
-    transition: all 2s;
-}
-.pure-news-image {
-    width: 100%;
-    height: 100%;
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    transition: all 2s;
-}
-
-.pure-news-heading {
-color: #ddd;
-background: #191818aa;
-padding: 5px;
-}
-
-.pure-news-card:hover .pure-news-heading {
-height: 50vh;
-}
-
-.pure-news-card:hover .pure-news-content {
-display: block;
-}
-
-.pure-news-content {
-border-top: 1px solid #666;
-display: none;
-}
-
-.pure-news-content .description {
-font-size: 0.85em;
-line-height: 1.3em;
-overflow: hidden;
-height: 6.4em;
-}
-
-.pure-news-content .links a {
-font-size: 0.9em;
-color: #ddd;
-text-decoration: none;
-}
-
-.pure-news-content .links a:hover {
-text-decoration: underline;
-}
-
-.pure-news-content .links {
-    border-top: 1px solid #666;
-    padding: 5px;
-}
-
-/* section header styling */
-
-a h2,
-a h6 {
-  font-weight: 500;
-  color: #666;
-}
-
-#search {
-  margin: auto;
-  width: 50%;
-}
-
-.park {
-  margin: auto;
-}
-
 .alphabet-list {
   position: sticky;
   top: 6vh;
@@ -411,8 +303,111 @@ a h6 {
   font-size: 1.2rem;
 }
 
-.smallLink {
-  font-size: 0.7rem;
+/* alert styling */
+
+/* general card styling (list cards) */
+.pure-card {
+  margin: 15px 20px;
+  padding: 1em 2em;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-shadow: 2px 0px 30px 5px #19181811;
+}
+
+.pure-card:hover {
+  margin: auto;
+  width: 100%;
+}
+
+/* park cards */
+.pure-card-park {
+  color: #191818;
+  margin: 10px auto;
+  padding: 1em 2em;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-shadow: 2px 0px 50px 5px #19181811;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* news cards */
+.pure-news-card {
+  height: 50vh;
+  max-height: 300px;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: all 2s;
+}
+
+.pure-news-image {
+  width: 100%;
+  height: 100%;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: all 2s;
+}
+
+.pure-news-heading {
+  color: #ddd;
+  background: #191818aa;
+  padding: 5px;
+}
+
+.pure-news-card:hover .pure-news-heading {
+  height: 50vh;
+}
+
+.pure-news-card:hover .pure-news-content {
+  display: block;
+}
+
+.pure-news-content {
+  border-top: 1px solid #666;
+  display: none;
+}
+
+.pure-news-content .description {
+  font-size: 0.85em;
+  line-height: 1.3em;
+  overflow: hidden;
+  height: 6.4em;
+}
+
+.pure-news-content .links a {
+  font-size: 0.9em;
+  color: #ddd;
+  text-decoration: none;
+}
+
+.pure-news-content .links a:hover {
+  text-decoration: underline;
+}
+
+.pure-news-content .links {
+  border-top: 1px solid #666;
+  padding: 5px;
+}
+
+/* section header styling */
+
+a h2,
+a h6 {
+  font-weight: 500;
+  color: #666;
+}
+
+#search {
+  margin: auto;
+  width: 50%;
+}
+
+.park {
+  margin: auto;
 }
 
 .parkHeader {
@@ -432,24 +427,32 @@ a h6 {
   margin: auto;
 }
 
+
+/* dividers */
+/* general (park header hr) */
 .divider {
   width: 80%;
   border: 0.5px solid #aaa;
 }
 
+/* alphabet list divider */
 .alphaDivider {
   padding: 5px 0 0 20px;
   border-bottom: 1px solid #888;
+  border-radius: 3px;
+  border-bottom-left-radius: 1px;
+  border-bottom-right-radius: 1px;
   position: sticky;
   top: 2em;
   background-color: #eee;
 }
 
+/* modified Alpha for visitor center */
 .visitorCenterDivider {
   margin: 10px auto;
   padding: 5px 20px;
   border-bottom: 1px solid #888;
-  border-radius: 3px; 
+  border-radius: 3px;
   border-bottom-left-radius: 1px;
   border-bottom-right-radius: 1px;
   position: sticky;
@@ -546,9 +549,9 @@ a h6 {
   width: 49%;
 }
 
-.directions{
-    display: flex;
-    flex-direction: column;
+.directions {
+  display: flex;
+  flex-direction: column;
 }
 
 .flex-row {
@@ -559,7 +562,7 @@ a h6 {
   width: 100%;
 }
 
-.parkMap{
-    width: 100%;
-    min-height: 100px;
+.parkMap {
+  width: 100%;
+  min-height: 100px;
 }
