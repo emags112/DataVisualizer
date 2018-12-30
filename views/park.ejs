@@ -1,5 +1,5 @@
 <% include partials/header %>
-    <div class="parkHeader header parallax-window" data-parallax="scroll" data-speed='.7' data-image-src="<%= randImage %>">
+    <div class="parkHeader header parallax-window" data-parallax="scroll" data-speed='.5' data-image-src="<%= randImage %>">
         <div class="parkHeaderBlock">
                 <h1><%= parks['data'][0]['name'] %></h1>
                 <hr class="divider">
@@ -9,9 +9,9 @@
     <div class="content pure-g">
         <div class="park pure-u-1 pure-g">
             <%  if(alerts['data'][0]){ %>
-                <div class="alerts pure-u-1 pure-g">
+                <div class="alerts pure-u-1">
                     <% alerts['data'].forEach(function(alert){ %>
-                        <div class="pure-alert-card pure-u-1 <%= alert['category'] %>">
+                        <div class="pure-alert-card <%= alert['category'] %>">
                             <div class="alert-head"><i id="<%= alert['category'] %>" class="infocon fas"></i><h4 class="alert-title"><%= alert['title'] %></h4><i id="arrow" class="fas fa-angle-up"></i></div>
                             <div class="hidden">
                                 <p><%= alert['description'] %></p>
@@ -20,13 +20,15 @@
                     <% }) %>
                 </div>
             <% } %>
-            <div class="weather pure-u-11-24 pure-card-park">
-                <h2 class="content-subheader">Weather</h2>
-                <p><%= parks['data'][0]['weatherInfo'] %></p>
-            </div>
-            <div class="directions pure-u-12-24 pure-card-park">
-                    <h2 class="content-subheader">Directions</h2>
-                    <p><%= parks['data'][0]['directionsInfo'] %></p>
+            <div class="pure-u-1 pure-g flex-row">
+                <div class="directions pure-card-park">
+                        <h2 class="content-subheader">Directions</h2>
+                        <p><%= parks['data'][0]['directionsInfo'] %></p>
+                </div>
+                <div class="weather pure-card-park">
+                    <h2 class="content-subheader">Weather</h2>
+                    <p><%= parks['data'][0]['weatherInfo'] %></p>
+                </div>
             </div>
             <div class="contact pure-card-park pure-u-1">
                     <h2 class="content-subheader">Contact</h2>

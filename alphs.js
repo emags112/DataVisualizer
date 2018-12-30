@@ -1,3 +1,5 @@
+// this is a sandbox test file used to build the scripts used for the main app
+
 const   request     =   require('request'),
         apiKey      =   '&api_key=Y2twmHii37VedsrgffYyooeLLobd4WOBPvEVW5zg',
         apiBaseURL  =   'https://api.nps.gov/api/v1';
