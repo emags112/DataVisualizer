@@ -1,6 +1,11 @@
-*{
-    word-wrap: break-word;
-    box-sizing: border-box;
+/* global/generic modifiers */
+* {
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
 }
 
 body {
@@ -8,84 +13,99 @@ body {
     color: #777;
 }
 
-.header img{
-    display: inline-block;
-    width: 1.75rem;
+img {
+    width: 100%;
 }
 
-.pure-img-responsive {
-    max-width: 100%;
-    height: auto;
+.center-align {
+text-align: center;
 }
 
+.right-align {
+    text-align: right;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.m-5 {
+    margin: 5px;
+}
+
+/* header styling */
+.header img {
+  display: inline-block;
+  width: 1.75rem;
+}
+
+/*top menu styling */
 /*
 Add transition to containers so they can push in and out.
 */
 #layout,
 #menu,
 .menu-link {
-    -webkit-transition: all 0.2s ease-out;
-    -moz-transition: all 0.2s ease-out;
-    -ms-transition: all 0.2s ease-out;
-    -o-transition: all 0.2s ease-out;
-    transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 /*
 This is the parent `<div>` that contains the menu and the content area.
 */
 #layout {
-    position: relative;
-    left: 0;
-    padding-left: 0;
+  position: relative;
+  left: 0;
+  padding-left: 0;
 }
-    #layout.active #menu {
-        left: 200px;
-        width: 200px;
-    }
+#layout.active #menu {
+  left: 200px;
+  width: 200px;
+}
 
-    #layout.active{
-        left: 200px;
-    }
+#layout.active {
+  left: 200px;
+}
 /*
 The content `<div>` is where all your content goes.
 */
 .content {
-    padding: 0 1em;
-    /* max-width: 800px; */
-    margin: 0;
+  padding: 0 1em;
+  /* max-width: 800px; */
+  margin: 0;
 
-    margin-bottom: 50px;
-    line-height: 1.6em;
+  margin-bottom: 50px;
+  line-height: 1.6em;
 }
 
 .header {
-     margin: 0;
-     margin-top: 2.2em;
-     color: #333;
-     text-align: center;
-     padding: 2.5em 2em 0;
-     border-bottom: 1px solid #eee;
- }
-    .header h1 {
-        margin: 0.2em 0;
-        font-size: 3em;
-        font-weight: 300;
-    }
-     .header h2 {
-        font-weight: 300;
-        color: #ccc;
-        padding: 0;
-        margin-top: 0;
-    }
-
-.content-subhead {
-    margin: 50px 0 20px 0;
-    font-weight: 300;
-    color: #888;
+  margin: 0;
+  margin-top: 2.2em;
+  color: #333;
+  text-align: center;
+  padding: 2.5em 2em 0;
+  border-bottom: 1px solid #eee;
+}
+.header h1 {
+  margin: 0.2em 0;
+  font-size: 3em;
+  font-weight: 300;
+}
+.header h2 {
+  font-weight: 300;
+  color: #ccc;
+  padding: 0;
+  margin-top: 0;
 }
 
-
+.content-subhead {
+  margin: 50px 0 20px 0;
+  font-weight: 300;
+  color: #888;
+}
 
 /*
 The `#menu` `<div>` is the parent `<div>` that contains the `.pure-menu` that
@@ -93,84 +113,84 @@ appears on the left side of the page.
 */
 
 #menu {
-    width: 100%;
-    margin: auto 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000; /* so the menu or its navicon stays above all content */
-    background: #191818;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+  width: 100%;
+  margin: auto 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* so the menu or its navicon stays above all content */
+  background: #191818;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-.pure-menu{
-    display: flex;
-    justify-content: space-between;
+.pure-menu {
+  display: flex;
+  justify-content: space-between;
 }
-    /*
+/*
     All anchors inside the menu should be styled like this.
     */
-    #menu a {
-        color: #999;
-        border: none;
-        padding: 0.6em 0 0.6em 0.6em;
-    }
+#menu a {
+  color: #999;
+  border: none;
+  padding: 0.6em 0 0.6em 0.6em;
+}
 
-    /*
+/*
     Remove all background/borders, since we are applying them to #menu.
     */
-     #menu .pure-menu,
-     #menu .pure-menu ul {
-        border: none;
-        background: transparent;
-    }
+#menu .pure-menu,
+#menu .pure-menu ul {
+  border: none;
+  background: transparent;
+}
 
-    /*
+/*
     Add that light border to separate items into groups.
     */
-    #menu .pure-menu ul,
-    #menu .pure-menu .menu-item-divided {
-        border-top: 1px solid #333;
-    }
-        /*
+#menu .pure-menu ul,
+#menu .pure-menu .menu-item-divided {
+  border-top: 1px solid #333;
+}
+/*
         Change color of the anchor links on hover/focus.
         */
-        #menu .pure-menu li a:hover,
-        #menu .pure-menu li a:focus {
-            background: #333;
-        }
+#menu .pure-menu li a:hover,
+#menu .pure-menu li a:focus {
+  background: #333;
+}
 
-    /*
+/*
     This styles the selected menu item `<li>`.
     */
-    #menu .pure-menu-selected,
-    #menu .pure-menu-heading {
-        background: #660000;
-    }
-        /*
+#menu .pure-menu-selected,
+#menu .pure-menu-heading {
+  background: #660000;
+}
+/*
         This styles a link within a selected menu item `<li>`.
         */
-        #menu .pure-menu-selected a {
-            color: #fff;
-        }
+#menu .pure-menu-selected a {
+  color: #fff;
+}
 
-    /*
+/*
     This styles the menu heading.
     */
-    #menu .pure-menu-heading {
-        font-size: 110%;
-        color: #fff;
-        margin: 0;
-        text-align: center
-    }
+#menu .pure-menu-heading {
+  font-size: 110%;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+}
 
 /* -- Dynamic Button For Responsive Menu -------------------------------------*/
 
-.pure-menu-item{
-    width: 8em;
-    text-align: center;
+.pure-menu-item {
+  width: 8em;
+  text-align: center;
 }
 /*
 The button to open/close the Menu is custom-made and not part of Pure. Here's
@@ -182,35 +202,34 @@ how it works:
 small screens.
 */
 
-    .menu-link:hover,
-    .menu-link:focus {
-        background: #000;
-    }
+.menu-link:hover,
+.menu-link:focus {
+  background: #000;
+}
 
-    .menu-link span {
-        position: relative;
-        display: block;
-    }
+.menu-link span {
+  position: relative;
+  display: block;
+}
 
-    .menu-link span,
-    .menu-link span:before,
-    .menu-link span:after {
-        background-color: #fff;
-        width: 100%;
-        height: 0.2em;
-    }
+.menu-link span,
+.menu-link span:before,
+.menu-link span:after {
+  background-color: #fff;
+  width: 100%;
+  height: 0.2em;
+}
 
-        .menu-link span:before,
-        .menu-link span:after {
-            position: absolute;
-            margin-top: -0.6em;
-            content: " ";
-        }
+.menu-link span:before,
+.menu-link span:after {
+  position: absolute;
+  margin-top: -0.6em;
+  content: " ";
+}
 
-        .menu-link span:after {
-            margin-top: 0.6em;
-        }
-
+.menu-link span:after {
+  margin-top: 0.6em;
+}
 
 /* -- Responsive Styles (Media Queries) ------------------------------------- */
 
@@ -218,71 +237,59 @@ small screens.
 Hides the menu at `48em`, but modify this based on your app's needs.
 */
 @media (min-width: 48em) {
+  .header,
+  .content {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
 
-    .header,
-    .content {
-        padding-left: 2em;
-        padding-right: 2em;
-    }
+  #layout {
+    left: 0;
+  }
 
-    #layout {
-        left: 0;
-    }
+  .menu-link {
+    position: fixed;
+    left: 200px;
+    display: none;
+  }
 
-    .menu-link {
-        position: fixed;
-        left: 200px;
-        display: none;
-    }
-
-    #layout.active .menu-link {
-        left: 200px;
-    }
+  #layout.active .menu-link {
+    left: 200px;
+  }
 }
 
 @media (max-width: 48em) {
-    /* Only apply this when the window is small. Otherwise, the following
+  /* Only apply this when the window is small. Otherwise, the following
     case results in extra padding on the left:
         * Make the window small.
         * Tap the menu to trigger the active state.
         * Make the window large again.
     */
-    #layout.active {
-        position: relative;
-        left: 200px;
-    }
+  #layout.active {
+    position: relative;
+    left: 200px;
+  }
 }
 
-.right-align{
-    text-align: right;
-}
+/* alphabet list styling */
 
-.center-align{
-    text-align: center;
-}
+/* alert styling */
 
-img{
-    width: 100%;
-}
-
-a h2, a h6{
-    font-weight: 500;
-    color:#666;
-}
-
-a{
-    text-decoration: none;
-}
-
-.pure-card{
+/* general card styling */
+.pure-card {
     margin: 10px 20px 10px 20px;
     padding: 1em 2em;
     border: 1px solid #ddd;
     border-radius: 3px;
-    box-shadow: 0px 10px 8px 10px #19181822;
+    box-shadow: 2px 0px 50px 5px rgba(25, 24, 24, 0.133);
 }
 
-.pure-card-park{
+.pure-card:hover {
+    box-shadow: 2px 2px 1px 1px #19181825;
+  }
+
+/* park cards */
+.pure-card-park {
     color: #191818;
     margin: 10px auto;
     padding: 1em 2em;
@@ -293,28 +300,17 @@ a{
     max-width: 100%;
 }
 
-.pure-card:hover{
-    box-shadow: 2px 2px 1px 1px #19181825;
-}
+/* list cards */
 
-#search{
-    margin: auto;
-    width: 50%
-}
-
-.m-5{
-    margin: 5px;
-}
-
-.pure-news-card{
+/* news cards */
+.pure-news-card {
     height: 50vh;
     max-height: 300px;
     padding: 10px;
     box-sizing: border-box;
     transition: all 2s;
 }
-
-.pure-news-image{
+.pure-news-image {
     width: 100%;
     height: 100%;
     background-position: top;
@@ -326,222 +322,244 @@ a{
     transition: all 2s;
 }
 
-.pure-news-heading{
-    color: #ddd;
-    background: #191818AA;
-    padding: 5px;
-    
+.pure-news-heading {
+color: #ddd;
+background: #191818aa;
+padding: 5px;
 }
 
-.pure-news-card:hover .pure-news-heading{
-    height: 50vh;
+.pure-news-card:hover .pure-news-heading {
+height: 50vh;
 }
 
-.pure-news-card:hover .pure-news-content{
-    display: block
+.pure-news-card:hover .pure-news-content {
+display: block;
 }
 
-.pure-news-content{
+.pure-news-content {
+border-top: 1px solid #666;
+display: none;
+}
+
+.pure-news-content .description {
+font-size: 0.85em;
+line-height: 1.3em;
+overflow: hidden;
+height: 6.4em;
+}
+
+.pure-news-content .links a {
+font-size: 0.9em;
+color: #ddd;
+text-decoration: none;
+}
+
+.pure-news-content .links a:hover {
+text-decoration: underline;
+}
+
+.pure-news-content .links {
     border-top: 1px solid #666;
-    display: none;
-}
-
-.pure-news-content .description{
-    font-size: .85em;
-    line-height: 1.3em;
-    overflow: hidden;
-    height: 6.4em;
-}
-
-.pure-news-content .links a{
-    font-size: .9em;
-    color: #ddd;
-    text-decoration: none;
-}
-
-.pure-news-content .links a:hover{
-    text-decoration:underline;
-}
-
-.pure-news-content .links{
-    border-top: 1px solid #666;
     padding: 5px;
 }
 
-.pure-news-heading h4{
-    margin: 0;
+/* section header styling */
+
+a h2,
+a h6 {
+  font-weight: 500;
+  color: #666;
 }
 
-.m-0{
-    margin: 0;
+#search {
+  margin: auto;
+  width: 50%;
 }
 
-.park{
-    margin: auto;
+.park {
+  margin: auto;
 }
 
-.alphabet-list{
-    position: sticky;
-    top: 6vh;
-    padding: .5em;
-    text-align: center;
-    background-color: #eee;
-    border-left: 1px solid #888;
-    height: 94vh;
+.alphabet-list {
+  position: sticky;
+  top: 6vh;
+  padding: 0.5em;
+  text-align: center;
+  background-color: #eee;
+  border-left: 1px solid #888;
+  height: 94vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.alphabet-list a {
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: block;
+  text-decoration: none;
+  color: #888;
+  width: 100%;
+  transition: all 0.1s;
+}
+
+.largeLink {
+  font-size: 1.6rem;
+}
+
+.medLink {
+  font-size: 1.2rem;
+}
+
+.smallLink {
+  font-size: 0.7rem;
+}
+
+.parkHeader {
+  height: 60vh;
+  margin-top: 2.4em;
+  color: #ddd;
+  background-size: cover;
+  background-blend-mode: lighten;
+  display: flex;
+  align-content: center;
+}
+
+.parkHeader .parkHeaderBlock {
+  background: #191818aa;
+  padding: 5px;
+  width: 50%;
+  margin: auto;
+}
+
+.divider {
+  width: 80%;
+  border: 0.5px solid #aaa;
+}
+
+.alphaDivider {
+  padding: 5px 0 0 20px;
+  border-bottom: 1px solid #888;
+  position: sticky;
+  top: 2em;
+  background-color: #eee;
+}
+
+.visitorCenterDivider {
+  margin: 10px auto;
+  padding: 5px 20px;
+  border-bottom: 1px solid #888;
+  border-radius: 3px; 
+  border-bottom-left-radius: 1px;
+  border-bottom-right-radius: 1px;
+  position: sticky;
+  top: 2em;
+  background-color: #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+#visitorInfo {
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.hidden {
+  height: 0px !important;
+}
+
+.rotate {
+  transform: rotateX(180deg);
+}
+
+#arrow {
+  transition: all 0.1s;
+}
+
+.alerts {
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.pure-alert-card {
+  color: #333;
+  padding: 0 20px;
+  margin: 5px auto;
+  border: 1px solid #888;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.pure-alert-card .content-subhead {
+  margin-top: 20px;
+  color: #333;
+}
+
+.Caution {
+  order: 1;
+  background: rgba(252, 185, 0, 0.3);
+  border-color: rgb(224, 165, 0, 0.7);
+  color: rgb(224, 165, 0);
+}
+
+.Information {
+  order: 2;
+  background: rgb(217, 237, 247);
+  border-color: rgb(49, 112, 143, 0.5);
+  color: rgb(49, 112, 143);
+}
+
+.Park.Closure,
+.Danger {
+  order: 0;
+  background: rgba(255, 0, 0, 0.3);
+  border-color: rgb(218, 0, 0, 0.5);
+  color: rgb(218, 0, 0);
+}
+
+.alert-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0.5em;
+}
+
+.alert-head .alert-title {
+  margin: 0;
+  padding: 0;
+}
+
+.alerts {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.directions,
+.weather {
+  margin: 0;
+  width: 49%;
+}
+
+.directions{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
 }
 
-.alphabet-list a{
-    flex-grow: 1;
-    flex-shrink: 1;
-    display: block;
-    text-decoration: none;
-    color: #888;
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 0;
+  width: 100%;
+}
+
+.parkMap{
     width: 100%;
-    transition: all .1s;
-}
-
-.largeLink{
-    font-size: 1.6rem;
-}
-
-.medLink{
-    font-size: 1.2rem;
-}
-
-.smallLink{
-    font-size: .7rem;
-}
-
-.parkHeader{
-    height: 50vh;
-    color: #ddd;
-    background-size: cover;
-    background-blend-mode: lighten;
-    display: flex;
-    align-content: center;
-}
-
-.parkHeader .parkHeaderBlock{
-    background: #191818AA;
-    padding: 5px;
-    width: 50%;
-    margin: auto;
-}
-
-.divider{
-    width: 80%;
-    border: .5px solid #aaa;
-}
-
-.alphaDivider{
-    padding: 5px 0 0 20px;
-    border-bottom: 1px solid #888;
-    position: sticky;
-    top: 2em;
-    background-color: #eee;
-}
-
-.visitorCenterDivider{
-    padding: 5px 20px;
-    border-bottom: 1px solid #888;
-    position: sticky;
-    top: 2em;
-    background-color: #eee;
-    display:flex;
-    justify-content: space-between;
-}
-
-#visitorInfo{
-    overflow: hidden;
-    transition: all .2s;
-}
-
-.hidden{
-    height: 0px !important;
-}
-
-.rotate{
-    transform: rotateX(180deg);
-}
-
-#arrow{
-    transition: all .1s;
-}
-
-.alerts{
-    margin: .5rem;
-    display:flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.pure-alert-card{
-    color: #333;
-    padding: 0 20px;
-    margin: 5px auto;
-    border: 1px solid #888;
-    border-radius: 3px;
-    width: 100%;
-}
-
-.pure-alert-card .content-subhead{
-    margin-top: 20px;
-    color:#333;
-}
-
-.Caution{
-    order: 1;
-    background: rgba(252, 185, 0, .3);
-    border-color: rgb(224, 165, 0, .7);
-    color: rgb(224, 165, 0);
-}
-
-.Information{
-    order: 2;
-    background: rgb(217, 237, 247);
-    border-color: rgb(49, 112, 143, .5);
-    color: rgb(49, 112, 143);
-}
-
-.Park.Closure, .Danger{
-    order: 0;
-    background: rgba(255, 0, 0, 0.3);
-    border-color: rgb(218, 0, 0, .5);
-    color: rgb(218, 0, 0)
-}
-
-.alert-head{
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin: .5em;
-}
-
-.alert-head .alert-title{
-    margin: 0;
-    padding: 0;
-}
-
-.alerts{
-    display: flex;
-    margin: 0;
-    padding: 0;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.directions, .weather{
-    margin: 0;
-    width: 49%;
-}
-
-.flex-row{
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-    padding:0;
-    width: 100%;
+    min-height: 100px;
 }

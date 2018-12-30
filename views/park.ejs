@@ -20,9 +20,22 @@
                     <% }) %>
                 </div>
             <% } %>
+            <div class="description pure-card-park pure-u-1">
+                <h2 class="content-subheader">Description</h2>
+                <p><%= parks['data'][0]['description'] %></p>
+            </div>
             <div class="pure-u-1 pure-g flex-row">
                 <div class="directions pure-card-park">
                         <h2 class="content-subheader">Directions</h2>
+                        <iframe id="parkMap"
+                                width="100%"
+                                height="300vh"
+                                frameborder="0" 
+                                style="border:0"
+                                <% let latLong = parks['data'][0]['latLong'].slice(4,16) + parks['data'][0]['latLong'].slice(22,35) %>
+                                src="https://www.google.com/maps/embed/v1/place?q=<%= parks['data'][0]['name'] %>&key=AIzaSyAa3dAZiSJoun0zZ4kFmd-LkmqjmRCLFn8" 
+                                allowfullscreen>
+                        </iframe>
                         <p><%= parks['data'][0]['directionsInfo'] %></p>
                 </div>
                 <div class="weather pure-card-park">
