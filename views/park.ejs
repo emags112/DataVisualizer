@@ -33,29 +33,76 @@
                                 frameborder="0" 
                                 style="border:0"
                                 <% let latLong = parks['data'][0]['latLong'].slice(4,16) + parks['data'][0]['latLong'].slice(22,35) %>
-                                src="https://www.google.com/maps/embed/v1/place?q=<%= parks['data'][0]['name'] %>&key=AIzaSyAa3dAZiSJoun0zZ4kFmd-LkmqjmRCLFn8" 
+                                src="https://www.google.com/maps/embed/v1/place?q=<%= parks['data'][0]['name'] %><%= googleKey %>" 
                                 allowfullscreen>
                         </iframe>
                         <p><%= parks['data'][0]['directionsInfo'] %></p>
                 </div>
-                <div class="weather pure-card-park">
-                    <h2 class="content-subheader">Weather</h2>
-                    <% weather['list'].forEach(function(day){ %>
-                        <div class="weather-card pure-g">
-                            <div class="date pure-u-6-24">Hello</div>
-                            <div class="forecast pure-u-18-24">
-                                world
+                <div class="weather">
+                    <div class="pure-card-park pure-u-1 flexgrow mt-0">
+                        <h2 class="content-subheader">Today's Weather</h2>
+                        <div class="weather-card">
+                            <div class="weather-main center-align">
+                                    <i class="wi wi-owm-<%= weather['weather'][0]['id'] %> wi-main"></i>
+                                    <h5 class='wi-discriptor'><%= weather['weather'][0]['main'] %></h5>
+                                    <h5 class='wi-discriptor'><%= weather['main']['temp'] %> °F</h5>
+                            </div>
+                            <div class="weather-body">
+                                <div class="top-row">
+                                    <div class="tempature">
+                                        <div class="temp">
+                                            <i class="wi wi-thermometer"></i> High: <%= weather['main']['temp_max'] %> °F
+                                        </div>
+                                        <div class="temp">
+                                            <i class="wi wi-thermometer-exterior"></i> Low: <%= weather['main']['temp_min'] %> °F
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="divider">
+                                <div>
+                                    <div class="forecast">
+                                        <div class="wind">
+                                            <% let direction = Math.round(Math.round(weather['wind']['deg']/22.5) * 22.5); %>
+                                            <i class="wi wi-strong-wind"></i> <%= weather['wind']['speed'] %>mph <i class="wi wi-wind towards-<%= direction %>-deg"></i>
+                                        </div>
+                                        <div class="humidity">
+                                            <i class="wi wi-humidity"></i> <%= weather['main']['humidity'] %>%
+                                        </div>
+                                        <div class="clouds">
+                                            <i class="wi wi-cloudy"></i> <%= weather['clouds']['all'] %>%
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="divider">
+                                <div class="bottom-row">
+                                    <div class="sunTimes">
+                                        <div id="sunrise">
+                                            <% var sunriseDate = new Date(weather['sys']['sunrise'] *1000); %>
+                                            <% var sunriseHours = sunriseDate.getHours(); %>
+                                            <% var sunriseMinutes = "0" + sunriseDate.getMinutes(); %>
+                                            <% var sunriseSeconds = "0" + sunriseDate.getSeconds(); %>
+                                            <% var sunriseTime = sunriseHours + ':' + sunriseMinutes.substr(-2) + ':' + sunriseSeconds.substr(-2); %>
+                                            <i class="wi wi-sunrise"></i> Sunrise: <%= sunriseTime %>UTC
+                                        </div>
+                                        <div id="sunset">
+                                            <% var sunsetDate = new Date(weather['sys']['sunset'] *1000); %>
+                                            <% var sunsetHours = sunsetDate.getHours(); %>
+                                            <% var sunsetMinutes = "0" + sunsetDate.getMinutes(); %>
+                                            <% var sunsetSeconds = "0" + sunsetDate.getSeconds(); %>
+                                            <% var sunsetTime = sunsetHours + ':' + sunsetMinutes.substr(-2) + ':' + sunsetSeconds.substr(-2); %>
+                                            <i class="wi wi-sunset"></i> Sunset: <%= sunsetTime %>UTC
+                                        </div>  
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    <% }) %>
-                    <p><%= parks['data'][0]['weatherInfo'] %></p>
+                    </div>
+                    <div class="pure-card-park pure-u-1 flexgrow mb-0">
+                        <h2 class="content-subheader">Climate Info</h2>
+                        <p><%= parks['data'][0]['weatherInfo'] %></p>
+                    </div>
                 </div>
             </div>
-            <div class="contact pure-card-park pure-u-1">
-                    <h2 class="content-subheader">Contact</h2>
-                    <p><%= parks['data'][0]['description'] %></p>
-            </div>
-        
             <div class="visitorcenters pure-card-park pure-u-1">
                     <h2 class="content-subheader">Visitor Centers</h2>
                 <% visitorCenter['data'].forEach(function(center){ %>

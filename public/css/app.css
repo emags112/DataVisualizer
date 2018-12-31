@@ -29,6 +29,14 @@ img {
   margin: 0;
 }
 
+.mt-0{
+  margin-top:0 !important;
+}
+
+.mb-0{
+  margin-bottom:0 !important;
+}
+
 .m-5 {
   margin: 5px;
 }
@@ -331,6 +339,10 @@ Hides the menu at `48em`, but modify this based on your app's needs.
   max-width: 100%;
 }
 
+.flexgrow{
+  flex-grow: 1;
+}
+
 /* news cards */
 .pure-news-card {
   height: 50vh;
@@ -565,4 +577,54 @@ a h6 {
 .parkMap {
   width: 100%;
   min-height: 100px;
+}
+
+table{
+  width: 100%;
+}
+
+.weather{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.weather-card{
+  height: 80%;
+  display: flex;
+}
+
+.weather-main{
+  width: 20%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.weather-body{
+  height: 100%;
+  width: 80%;
+  flex-grow: 1;
+}
+
+.tempature{
+  display: flex;
+  justify-content: space-evenly;
+}
+.forecast{
+  display: flex;
+  justify-content: space-evenly;
+}
+.sunTimes{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.wi-main{
+  font-size: 2em;
+}
+
+.wi-discriptor{
+  margin: 0 auto;
 }
