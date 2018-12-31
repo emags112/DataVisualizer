@@ -1,11 +1,3 @@
-*cards
-    change search cards to list cards
-
-*park landing page
-    smooth out parallax
-    maps for park and each visitor center
-    pull current weather from api
-
 *park map
     need to start
 

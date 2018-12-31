@@ -1,4 +1,4 @@
-/* global/generic modifiers */
+/***** global/generic modifiers *****/
 * {
   word-wrap: break-word;
   box-sizing: border-box;
@@ -17,6 +17,7 @@ img {
   width: 100%;
 }
 
+/***** generic class modifiers *****/
 .center-align {
   text-align: center;
 }
@@ -29,24 +30,32 @@ img {
   margin: 0;
 }
 
-.mt-0{
-  margin-top:0 !important;
+.mt-0 {
+  margin-top: 0 !important;
 }
 
-.mb-0{
-  margin-bottom:0 !important;
+.mb-0 {
+  margin-bottom: 0 !important;
 }
 
 .m-5 {
   margin: 5px;
 }
 
+
+/***** header *****/
+
+/***** Home Specific *****/
 /* header styling */
 .header img {
   display: inline-block;
   width: 1.75rem;
 }
+/***** List Specific *****/
+/***** Parks Specific *****/
 
+
+/***** navbar *****/
 /*top menu styling */
 /*
 Add transition to containers so they can push in and out.
@@ -320,6 +329,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
   border: 1px solid #ddd;
   border-radius: 3px;
   box-shadow: 2px 0px 30px 5px #19181811;
+  transition: width .2s;
 }
 
 .pure-card:hover {
@@ -339,7 +349,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
   max-width: 100%;
 }
 
-.flexgrow{
+.flexgrow {
   flex-grow: 1;
 }
 
@@ -438,7 +448,6 @@ a h6 {
   width: 50%;
   margin: auto;
 }
-
 
 /* dividers */
 /* general (park header hr) */
@@ -579,22 +588,22 @@ a h6 {
   min-height: 100px;
 }
 
-table{
+table {
   width: 100%;
 }
 
-.weather{
+.weather {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.weather-card{
+.weather-card {
   height: 80%;
   display: flex;
 }
 
-.weather-main{
+.weather-main {
   width: 20%;
   flex-grow: 1;
   display: flex;
@@ -602,29 +611,29 @@ table{
   justify-content: center;
 }
 
-.weather-body{
+.weather-body {
   height: 100%;
   width: 80%;
   flex-grow: 1;
 }
 
-.tempature{
+.tempature {
   display: flex;
   justify-content: space-evenly;
 }
-.forecast{
+.forecast {
   display: flex;
   justify-content: space-evenly;
 }
-.sunTimes{
+.sunTimes {
   display: flex;
   justify-content: space-evenly;
 }
 
-.wi-main{
+.wi-main {
   font-size: 2em;
 }
 
-.wi-discriptor{
+.wi-discriptor {
   margin: 0 auto;
 }

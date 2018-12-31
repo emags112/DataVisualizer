@@ -6,22 +6,13 @@
     <div class="content">
         <div class="pure-g">
             <% data['data'].forEach(function(park){ %>
-                <div class="pure-card">
-                <h2 class="content-subheader pure-u-18-24">
-                    <a href="/park/<%= park['parkCode'] %>"><%= park['fullName'] %></a>
-                </h2>
-                <h6 class="content-subheader pure-u-6-24 right-align"><%= park['designation'] %></h6>
-                <p class="pure-u-1"><%= park['description'] %></p>
-                <% if(park['images']){ %>
-                    <div class="pure-u-1-4"></div>
-                    <% let image = park['images'][0] %>
-                        <div class="pure-u-1-2">
-                            <img src="<%= image['url'] %>" alt="<%= image['altText'] %>">
-                            <h6 class="pure-u-1 m-0"><%= image['caption'] %></h6>
-                        </div>
-                    <% } %>
-                    <div class="pure-u-1-4"></div>
-                </div>
+                <a href="/park/<%= park['parkCode'] %>">
+                    <div class="pure-card">
+                        <h2 class="content-subheader pure-u-18-24"><%= park['fullName'] %></h2>
+                        <h6 class="content-subheader pure-u-6-24 right-align"><%= park['designation'] %></h6>
+                        <p class="pure-u-1"><%= park['description'] %></p>
+                    </div>
+                </a>
             <% }); %>
         </div>
     </div>
