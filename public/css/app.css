@@ -8,7 +8,7 @@ a {
   text-decoration: none;
 }
 
-a p{
+a p {
   color: #666;
 }
 
@@ -46,33 +46,7 @@ img {
   margin: 5px;
 }
 
-
 /***** header *****/
-
-/***** Home Specific *****/
-/* header styling */
-.header img {
-  display: inline-block;
-  width: 1.75rem;
-}
-/***** List Specific *****/
-/***** Parks Specific *****/
-
-
-/***** navbar *****/
-/*top menu styling */
-/*
-Add transition to containers so they can push in and out.
-*/
-#layout,
-#menu,
-.menu-link {
-  -webkit-transition: all 0.2s ease-out;
-  -moz-transition: all 0.2s ease-out;
-  -ms-transition: all 0.2s ease-out;
-  -o-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
-}
 
 /*
 This is the parent `<div>` that contains the menu and the content area.
@@ -90,14 +64,13 @@ This is the parent `<div>` that contains the menu and the content area.
 #layout.active {
   left: 200px;
 }
+
 /*
 The content `<div>` is where all your content goes.
 */
 .content {
   padding: 0 1em;
-  /* max-width: 800px; */
   margin: 0;
-
   margin-bottom: 50px;
   line-height: 1.6em;
 }
@@ -110,16 +83,23 @@ The content `<div>` is where all your content goes.
   padding: 2.5em 2em 0;
   border-bottom: 1px solid #eee;
 }
+
 .header h1 {
   margin: 0.2em 0;
   font-size: 3em;
   font-weight: 300;
 }
+
 .header h2 {
   font-weight: 300;
   color: #ccc;
   padding: 0;
   margin-top: 0;
+}
+
+.header img {
+  display: inline-block;
+  width: 1.75rem;
 }
 
 .content-subhead {
@@ -151,8 +131,8 @@ appears on the left side of the page.
   justify-content: space-between;
 }
 /*
-    All anchors inside the menu should be styled like this.
-    */
+All anchors inside the menu should be styled like this.
+*/
 #menu a {
   color: #999;
   border: none;
@@ -160,8 +140,8 @@ appears on the left side of the page.
 }
 
 /*
-    Remove all background/borders, since we are applying them to #menu.
-    */
+Remove all background/borders, since we are applying them to #menu.
+*/
 #menu .pure-menu,
 #menu .pure-menu ul {
   border: none;
@@ -169,37 +149,30 @@ appears on the left side of the page.
 }
 
 /*
-    Add that light border to separate items into groups.
-    */
+Add that light border to separate items into groups.
+*/
 #menu .pure-menu ul,
 #menu .pure-menu .menu-item-divided {
   border-top: 1px solid #333;
 }
 /*
-        Change color of the anchor links on hover/focus.
-        */
+Change color of the anchor links on hover/focus.
+*/
 #menu .pure-menu li a:hover,
 #menu .pure-menu li a:focus {
   background: #333;
 }
 
 /*
-    This styles the selected menu item `<li>`.
-    */
-#menu .pure-menu-selected,
+This styles the selected menu item `<li>`.
+*/
 #menu .pure-menu-heading {
   background: #660000;
 }
-/*
-        This styles a link within a selected menu item `<li>`.
-        */
-#menu .pure-menu-selected a {
-  color: #fff;
-}
 
 /*
-    This styles the menu heading.
-    */
+This styles the menu heading.
+*/
 #menu .pure-menu-heading {
   font-size: 110%;
   color: #fff;
@@ -213,94 +186,17 @@ appears on the left side of the page.
   width: 8em;
   text-align: center;
 }
-/*
-The button to open/close the Menu is custom-made and not part of Pure. Here's
-how it works:
-*/
-
-/*
-`.menu-link` represents the responsive menu toggle that shows/hides on
-small screens.
-*/
-
-.menu-link:hover,
-.menu-link:focus {
-  background: #000;
-}
-
-.menu-link span {
-  position: relative;
-  display: block;
-}
-
-.menu-link span,
-.menu-link span:before,
-.menu-link span:after {
-  background-color: #fff;
-  width: 100%;
-  height: 0.2em;
-}
-
-.menu-link span:before,
-.menu-link span:after {
-  position: absolute;
-  margin-top: -0.6em;
-  content: " ";
-}
-
-.menu-link span:after {
-  margin-top: 0.6em;
-}
-
-/* -- Responsive Styles (Media Queries) ------------------------------------- */
-
-/*
-Hides the menu at `48em`, but modify this based on your app's needs.
-*/
-@media (min-width: 48em) {
-  .header,
-  .content {
-    padding-left: 2em;
-    padding-right: 2em;
-  }
-
-  #layout {
-    left: 0;
-  }
-
-  .menu-link {
-    position: fixed;
-    left: 200px;
-    display: none;
-  }
-
-  #layout.active .menu-link {
-    left: 200px;
-  }
-}
-
-@media (max-width: 48em) {
-  /* Only apply this when the window is small. Otherwise, the following
-    case results in extra padding on the left:
-        * Make the window small.
-        * Tap the menu to trigger the active state.
-        * Make the window large again.
-    */
-  #layout.active {
-    position: relative;
-    left: 200px;
-  }
-}
 
 /* alphabet list styling */
 .alphabet-list {
   position: sticky;
-  top: 6vh;
+  top: 2.5rem;
+
   padding: 0.5em;
   text-align: center;
   background-color: #eee;
   border-left: 1px solid #888;
-  height: 94vh;
+  height: 96vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -333,7 +229,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
   border: 1px solid #ddd;
   border-radius: 3px;
   box-shadow: 2px 0px 30px 5px #19181811;
-  transition: width .2s;
+  transition: width 0.2s;
 }
 
 .pure-card:hover {
