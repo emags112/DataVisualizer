@@ -8,6 +8,10 @@ a {
   text-decoration: none;
 }
 
+a p{
+  color: #666;
+}
+
 body {
   background-color: #f8fff8;
   color: #777;
