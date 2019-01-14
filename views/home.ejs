@@ -50,7 +50,7 @@
             <h2 class="content-subhead center-align pure-u-1">Latest Stories</h2>
             <% articles['data'].forEach(function(article){ %>
                 <div class="pure-news-card pure-u-8-24">
-                    <div class="pure-news-image" style="background-image: url('<%= article['listingImage']['url']%>');">
+                    <div class="pure-news-image" style="background-image: url('<%= article.listingImage.url%>');">
                         <div class="pure-news-heading">
                             <h4 class="m-0"><%= article['title'] %></h4>
                             <div class="pure-news-content">
