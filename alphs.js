@@ -4,10 +4,10 @@ const   express     =   require('express'),
         request     =   require('request'),
         bodyParser  =   require('body-parser'),
         app         =   express(),
-        apiKey      =   '&api_key=Y2twmHii37VedsrgffYyooeLLobd4WOBPvEVW5zg',
+        apiKey      =   process.env.NPSKEY,
         apiBaseURL  =   'https://api.nps.gov/api/v1',
         owmAPIKey   =   '',
-        owmAPIBase  =   'http://api.openweathermap.org/data/2.5/weather?',
+        owmAPIBase  =   process.env.OWMKEY,
         lat         =   '32.20909636',
         long        =   '-110.7574974';
 

@@ -108,6 +108,15 @@ The content `<div>` is where all your content goes.
   color: #888;
 }
 
+.news{
+  margin: auto;
+  max-width: 1000px;
+}
+
+.pure-g{
+  justify-content: space-around;
+}
+
 /*
 The `#menu` `<div>` is the parent `<div>` that contains the `.pure-menu` that
 appears on the left side of the page.
