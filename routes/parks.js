@@ -9,7 +9,7 @@ const express = require("express"),
   owmAPIBase = "http://api.openweathermap.org/data/2.5/weather?";
 
 router.get("/list/abc", function(req, res) {
-  request(apiBaseURL + "/parks?limit=600" + apiKey, function(
+  request(apiBaseURL + "/parks?limit=600&api_key=" + apiKey, function(
     error,
     response,
     body
@@ -27,7 +27,7 @@ router.get("/park/:parkCode", function(req, res) {
   let parkCode = req.params.parkCode;
   // search for park
   request(
-    apiBaseURL + "/parks?parkCode=" + parkCode + "&fields=images" + apiKey,
+    apiBaseURL + "/parks?parkCode=" + parkCode + "&fields=images&api_key=" + apiKey,
     function(error, response, body) {
       if (error) {
         res.send(error);
@@ -44,7 +44,7 @@ router.get("/park/:parkCode", function(req, res) {
           apiBaseURL +
             "/visitorcenters?parkCode=" +
             parkCode +
-            "&fields=name,operatingHours,addresses,contacts" +
+            "&fields=name,operatingHours,addresses,contacts&api_key=" +
             apiKey,
           function(error, response, body) {
             if (error) {
@@ -53,7 +53,7 @@ router.get("/park/:parkCode", function(req, res) {
               let visitorCenter = JSON.parse(body);
               // get alerts
               request(
-                apiBaseURL + "/alerts?parkCode=" + parkCode + apiKey,
+                apiBaseURL + "/alerts?parkCode=" + parkCode + "&api_key=" + apiKey,
                 function(error, response, body) {
                   if (error) {
                     res.send(error);
@@ -100,7 +100,7 @@ router.get("/:dataSet/:state", function(req, res) {
   let state = req.params.state;
   if (state === "any") {
     request(
-      apiBaseURL + "/parks?q=" + dataSet + "&fields=images" + apiKey,
+      apiBaseURL + "/parks?q=" + dataSet + "&fields=images&api_key=" + apiKey,
       function(error, response, body) {
         if (error) {
           res.send(error);
@@ -130,7 +130,7 @@ router.get("/:dataSet/:state", function(req, res) {
     );
   } else if (dataSet === "_") {
     request(
-      apiBaseURL + "/parks?stateCode=" + state + "&fields=images" + apiKey,
+      apiBaseURL + "/parks?stateCode=" + state + "&fields=images&api_key=" + apiKey,
       function(error, response, body) {
         if (error) {
           res.send(error);
