@@ -33,7 +33,7 @@
                                 frameborder="0" 
                                 style="border:0"
                                 <% let latLong = parks['data'][0]['latLong'].slice(4,16) + parks['data'][0]['latLong'].slice(22,35) %>
-                                src="https://www.google.com/maps/embed/v1/place?q=<%= parks['data'][0]['name'] %><%= googleKey %>" 
+                                src="https://www.google.com/maps/embed/v1/place?q=<%= parks['data'][0]['name'] %>&key=<%= googleKey %>" 
                                 allowfullscreen>
                         </iframe>
                         <p><%= parks['data'][0]['directionsInfo'] %></p>
